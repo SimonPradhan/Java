@@ -1,0 +1,26 @@
+2023-01-13 07:28:50,936 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-01-13 07:38:06,506 [Worker-30: https://download.eclipse.org/technology/epp/packages/latest/artifacts.xml.xz] INFO  o.a.h.c.h.i.c.HttpRequestRetryExec - Recoverable I/O exception (java.net.SocketException) caught when processing request to {s}->https://download.eclipse.org:443
+2023-01-13 07:38:14,740 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-01-13 07:49:59,365 [Start Help Server] INFO  org.eclipse.jetty.server.Server - jetty-10.0.12; built: 2022-09-14T01:54:40.076Z; git: 408d0139887e27a57b54ed52e2d92a36731a7e88; jvm 19.0.1+10-21
+2023-01-13 07:49:59,400 [Start Help Server] INFO  o.e.j.s.s.DefaultSessionIdManager - Session workerName=node0
+2023-01-13 07:49:59,420 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@3aae8ec2{/help,null,AVAILABLE}
+2023-01-13 07:49:59,439 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@932c036{HTTP/1.1, (http/1.1)}{127.0.0.1:65318}
+2023-01-13 07:49:59,442 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started Server@7aff81e0{STARTING}[10.0.12,sto=0] @315643ms
+2023-01-13 07:50:51,203 [Worker-35: https://download.eclipse.org/technology/epp/packages/2022-12/compositeArtifacts.jar] INFO  o.a.h.c.h.i.c.HttpRequestRetryExec - Recoverable I/O exception (java.net.SocketException) caught when processing request to {s}->https://download.eclipse.org:443
+2023-01-13 07:50:51,243 [Stop Help Server] INFO  org.eclipse.jetty.server.Server - Stopped Server@7aff81e0{STOPPING}[10.0.12,sto=0]
+2023-01-13 07:50:51,246 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@932c036{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
+2023-01-13 07:50:51,256 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@3aae8ec2{/help,null,STOPPED}
+2023-01-13 07:58:34,737 [Worker-23: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-01-13 08:02:51,311 [Worker-42: https://ftp.jaist.ac.jp/pub/eclipse/releases/2022-12/202212071000/plugins/org.eclipse.wb.rcp.nebula_1.9.1.202210231159.jar] INFO  o.a.h.c.h.i.c.HttpRequestRetryExec - Recoverable I/O exception (org.apache.hc.core5.http.NoHttpResponseException) caught when processing request to {s}->https://ftp.jaist.ac.jp:443
+2023-01-13 08:04:08,377 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-01-13 14:59:06,043 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-01-14 10:08:35,927 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-01-14 10:08:36,347 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.
+2023-01-15 12:05:13,688 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-01-15 12:05:14,133 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.
+2023-01-15 14:44:46,205 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-01-15 20:05:29,888 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-01-16 20:50:07,240 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-01-17 10:17:00,846 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-01-17 16:47:06,435 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-01-18 23:57:43,542 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.

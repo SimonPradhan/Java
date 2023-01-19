@@ -1,0 +1,19 @@
+package banking;
+
+import javax.swing.JPanel;
+
+public class checkBalance extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	JPanel checkBalance;
+	public checkBalance() {
+		setLayout(null);
+		checkBalance = new JPanel();
+		
+		
+
+	}
+
+}

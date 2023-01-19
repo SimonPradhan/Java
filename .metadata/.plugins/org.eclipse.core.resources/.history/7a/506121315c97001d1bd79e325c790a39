@@ -1,0 +1,14 @@
+package courseManagement;
+
+import javax.swing.JApplet;
+
+public class Application extends JApplet {
+
+	/**
+	 * Create the applet.
+	 */
+	public Application() {
+
+	}
+
+}

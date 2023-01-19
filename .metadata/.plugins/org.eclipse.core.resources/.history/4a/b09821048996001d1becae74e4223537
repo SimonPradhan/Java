@@ -1,0 +1,32 @@
+package heraldApp;
+
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JLabel;
+import java.awt.Font;
+
+public class Scholar extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	JPanel panel_Scholar;
+	public Scholar() {
+		panel_Scholar = new JPanel();
+		setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Our Scholars");
+		lblNewLabel.setFont(new Font("Arial Black", Font.BOLD, 16));
+		lblNewLabel.setBounds(160, 10, 125, 21);
+		panel_Scholar.add(lblNewLabel);
+		
+		JTextArea txtrAshishAcharya = new JTextArea();
+		txtrAshishAcharya.setEditable(false);
+		txtrAshishAcharya.setFont(new Font("Arial", Font.BOLD, 14));
+		txtrAshishAcharya.setText("Ashish Acharya : Lecturer and Module Leader (OOPS)\r\nRukesh Shrestha: Tutor (OOPS)");
+		txtrAshishAcharya.setBounds(10, 41, 430, 249);
+		panel_Scholar.add(txtrAshishAcharya);
+		
+	}
+
+}

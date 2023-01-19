@@ -1,0 +1,33 @@
+package tutorial;
+
+import javax.swing.JPanel;
+import javax.swing.JTextPane;
+import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import java.awt.Component;
+
+public class Alumni extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	JPanel panel_Alumni;
+	public Alumni() {
+		setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Our Alumni");
+		lblNewLabel.setFont(new Font("Arial Black", Font.PLAIN, 14));
+		lblNewLabel.setBounds(180, 10, 87, 22);
+		add(lblNewLabel);
+		
+		JTextArea txtrSugamPaudyalRoshish = new JTextArea();
+		txtrSugamPaudyalRoshish.setWrapStyleWord(true);
+		txtrSugamPaudyalRoshish.setFont(new Font("Arial", Font.PLAIN, 14));
+		txtrSugamPaudyalRoshish.setText("\r\nSugam Paudyal\r\nRoshish Shrestha\r\nSimon Pradhananga\r\nSimonta Pradhananga\r\nSimanta Pradhananga\r\n");
+		txtrSugamPaudyalRoshish.setEditable(false);
+		txtrSugamPaudyalRoshish.setBounds(10, 42, 430, 248);
+		add(txtrSugamPaudyalRoshish);
+			
+	}
+}

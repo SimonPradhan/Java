@@ -1,0 +1,40 @@
+package heraldApp;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.GridLayout;
+import javax.swing.JTextArea;
+import java.awt.SystemColor;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.JScrollBar;
+
+public class About_us extends JPanel {
+	/**
+	 * 
+	 */
+	JPanel panel_about;
+
+	public About_us() {
+		panel_about = new JPanel();
+		panel_about.setBounds(100, 100, 450, 300);
+		
+		JTextArea txtrAboutUs = new JTextArea();
+		txtrAboutUs.setBackground(new Color(240, 240, 240));
+		txtrAboutUs.setFont(new Font("Arial Black", Font.BOLD, 16));
+		txtrAboutUs.setText("About Us");
+		txtrAboutUs.setBounds(165, 23, 89, 27);
+		panel_about.add(txtrAboutUs);
+		
+		JTextArea txtrEnrollAtThe = new JTextArea();
+		txtrEnrollAtThe.setBounds(10, 73, 393, 180);
+		txtrEnrollAtThe.setText("Enroll at the most updated, and futuristic course in one of the best BIT College in Kathmandu. Herald College adopts a unique and internationally applied teaching approach, L-T-W (Lecture, Tutorial and Workshop). The course aims to produce software developers who master the #NextGenTechs i.e. ABC (Artificial Intelligence, Big Data & Cloud Computing).");
+		txtrEnrollAtThe.setLineWrap(true);
+		txtrEnrollAtThe.setFont(new Font("Copperplate Gothic Light", Font.PLAIN, 13));
+		txtrEnrollAtThe.setBackground(SystemColor.menu);
+		panel_about.add(txtrEnrollAtThe);
+		panel_about.setVisible(true);
+	}
+}

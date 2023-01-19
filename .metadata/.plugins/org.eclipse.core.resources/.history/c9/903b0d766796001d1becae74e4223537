@@ -1,0 +1,355 @@
+package Week9asses;
+
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+
+public class Home {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Home window = new Home();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Home() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		
+		
+		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(255, 255, 255));
+		frame.setBounds(100, 100, 866, 593);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//	------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+		JPanel upper_panel = new JPanel();
+		upper_panel.setBackground(new Color(120, 196, 68));
+//	-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		JPanel panel_button = new JPanel();
+//	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+		JPanel panel_mainContent = new JPanel();
+		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(panel_button, GroupLayout.PREFERRED_SIZE, 280, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(panel_mainContent, GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE))
+						.addComponent(upper_panel, GroupLayout.PREFERRED_SIZE, 822, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap())
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(upper_panel, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(panel_mainContent, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(panel_button, GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE))
+					.addGap(36))
+		);
+		panel_mainContent.setLayout(new CardLayout(0, 0));
+		
+		JPanel panel_courses = new JPanel();
+		panel_mainContent.add(panel_courses, "name_102253958431700");
+		panel_courses.setLayout(new CardLayout(0, 0));
+		
+		JTextPane txtpnCoursesBschonsComputer = new JTextPane();
+		txtpnCoursesBschonsComputer.setEditable(false);
+		txtpnCoursesBschonsComputer.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		txtpnCoursesBschonsComputer.setText("\r\nCourses \r\n\r\nBSc(Hons) Computer Science \r\n\r\nLevel 4\r\n1) Fundamentals of Computing\r\n2) Introductory Programming and Problem Solving\r\n3) Academic Skills and Team-Based Learning\r\n4) Computational Mathematics\r\n5) Internet Software Architecture\r\n6) Embedded System Programming");
+		panel_courses.add(txtpnCoursesBschonsComputer, "name_102760312763700");
+		
+		JPanel panel_aboutus = new JPanel();
+		panel_mainContent.add(panel_aboutus, "name_102287950025400");
+		panel_aboutus.setLayout(new CardLayout(0, 0));
+		
+		
+		JTextPane txtpnAboutUsHerald_1 = new JTextPane();
+		txtpnAboutUsHerald_1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		txtpnAboutUsHerald_1.setText("ABOUT US\r\n\r\nHerald College Kathmandu (HCK) provides the best UK university education at most affordable fees. It offers Bachelor Degrees in IT and Business in direct partnership with the University of Wolverhampton, UK.\r\n\r\nProgrammes that Herald College Kathmandu offers are flexible and have always aimed to foster a broader based knowledge.\r\n\r\nHerald College Kathmandu offers the BSc (Hons) International Business Management and BSc (Hons) in Computer Science qualification from the University of Wolverhampton (WLV). Considering effort, aptitude and knowledge, Herald College Kathmandu organizes a competition every year where students are awarded with scholarships to participate in 15-Day Summer-Camp organized at the University of Wolverhampton, UK.");
+		panel_aboutus.add(txtpnAboutUsHerald_1, "name_105311878633200");
+		
+		JPanel panel_contactus = new JPanel();
+		panel_contactus.setBackground(new Color(255, 255, 255));
+		panel_mainContent.add(panel_contactus, "name_102302615265200");
+		panel_contactus.setLayout(null);
+		
+		textField = new JTextField();
+		textField.setBounds(26, 102, 172, 22);
+		panel_contactus.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(329, 103, 172, 22);
+		panel_contactus.add(textField_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(26, 230, 172, 22);
+		panel_contactus.add(textField_2);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(329, 230, 172, 22);
+		panel_contactus.add(textField_3);
+		
+
+		JLabel invalidEmailLabel = new JLabel("");
+		invalidEmailLabel.setForeground(new Color(255, 0, 0));
+		invalidEmailLabel.setBounds(26, 262, 94, 13);
+		panel_contactus.add(invalidEmailLabel);
+		
+		JLabel invalidFirstName = new JLabel("");
+		invalidFirstName.setForeground(new Color(255, 0, 0));
+		invalidFirstName.setBounds(26, 127, 45, 13);
+		panel_contactus.add(invalidFirstName);
+		
+		JLabel invalidLastName = new JLabel("");
+		invalidLastName.setForeground(Color.RED);
+		invalidLastName.setBounds(329, 127, 45, 13);
+		panel_contactus.add(invalidLastName);
+		
+		JLabel invalidQuery = new JLabel("");
+		invalidQuery.setForeground(Color.RED);
+		invalidQuery.setBounds(329, 262, 45, 13);
+		panel_contactus.add(invalidQuery);
+	
+		
+		JButton btnNewButton_2 = new JButton("SUBMIT");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (!validateEmail(textField_2.getText())) {
+					invalidEmailLabel.setText("Invalid Email!");
+				} else {
+					invalidEmailLabel.setText("");	
+				}
+				if (textField.getText().equals("")  || textField_1.getText().equals("") || !validateEmail(textField_2.getText())|| textField_3.getText().equals("") ) {
+					JOptionPane.showMessageDialog(null, "Null Field.");
+				}else {
+					JOptionPane.showMessageDialog(null, "Your query has been submitted");
+				}
+			
+			
+			}
+		});
+		
+		btnNewButton_2.setBounds(199, 356, 106, 33);
+		btnNewButton_2.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		btnNewButton_2.setBackground(new Color(240, 240, 240));
+		panel_contactus.add(btnNewButton_2);
+		
+		JTextArea txtrHowToContact = new JTextArea();
+		txtrHowToContact.setEditable(false);
+		txtrHowToContact.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		txtrHowToContact.setBounds(159, 10, 160, 22);
+		txtrHowToContact.setText("How to contact us?");
+		panel_contactus.add(txtrHowToContact);
+		
+		JTextArea txtrFirstName = new JTextArea();
+		txtrFirstName.setEditable(false);
+		txtrFirstName.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		txtrFirstName.setText("FIRST NAME:");
+		txtrFirstName.setBounds(26, 70, 160, 22);
+		panel_contactus.add(txtrFirstName);
+		
+		JTextArea txtrLastName = new JTextArea();
+		txtrLastName.setEditable(false);
+		txtrLastName.setText("LAST NAME:");
+		txtrLastName.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		txtrLastName.setBounds(329, 70, 160, 22);
+		panel_contactus.add(txtrLastName);
+		
+		JTextArea txtrEmailAddress = new JTextArea();
+		txtrEmailAddress.setEditable(false);
+		txtrEmailAddress.setText("Email Address:");
+		txtrEmailAddress.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		txtrEmailAddress.setBounds(26, 198, 160, 22);
+		panel_contactus.add(txtrEmailAddress);
+		
+		JTextArea txtrYourQuery = new JTextArea();
+		txtrYourQuery.setEditable(false);
+		txtrYourQuery.setText("Your Query:");
+		txtrYourQuery.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		txtrYourQuery.setBounds(329, 198, 160, 22);
+		panel_contactus.add(txtrYourQuery);
+
+		JPanel panel_alumni = new JPanel();
+		panel_mainContent.add(panel_alumni, "name_132922255781499");
+		panel_alumni.setLayout(new CardLayout(0, 0));
+		
+		JPanel panel_scholar = new JPanel();
+		panel_mainContent.add(panel_scholar, "name_133241051152900");
+		panel_scholar.setLayout(new CardLayout(0, 0));
+		
+		JTextPane txtpnYouHaveBeen = new JTextPane();
+		txtpnYouHaveBeen.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		txtpnYouHaveBeen.setText("The scholars of the college are:");
+		panel_scholar.add(txtpnYouHaveBeen, "name_133421965234600");
+		
+		JTextPane txtpnTheNameOf = new JTextPane();
+		txtpnTheNameOf.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		txtpnTheNameOf.setForeground(new Color(0, 0, 0));
+		txtpnTheNameOf.setEditable(false);
+		txtpnTheNameOf.setText("The name of alumni: \r\nSugam Paudyal\r\nSimon Pradhananga\r\nRoshish Shrestha\r\nSugam Paudyal\r\nSimanta Pradhananga\r\nRosh Bosh Shrestha");
+		panel_alumni.add(txtpnTheNameOf, "name_133141039721999");
+		
+		JPanel panel_submit = new JPanel();
+		panel_mainContent.add(panel_submit, "name_102311528208900");
+		panel_submit.setLayout(new CardLayout(0, 0));
+		
+		JTextPane txtpnYourRequestHas = new JTextPane();
+		txtpnYourRequestHas.setFont(new Font("Times New Roman", Font.PLAIN, 30));
+		txtpnYourRequestHas.setText("Your request has been submitted");
+		panel_submit.add(txtpnYourRequestHas, "name_107334986063600");
+		panel_button.setLayout(null);
+		
+		JButton btn_courses = new JButton("COURSES");
+		btn_courses.setForeground(new Color(255, 255, 255));
+		btn_courses.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		btn_courses.setBackground(new Color(120, 196, 68));
+		btn_courses.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel_mainContent.removeAll();
+				panel_mainContent.add(panel_courses);
+				panel_mainContent.repaint();
+				panel_mainContent.revalidate();
+									
+			}
+		});
+		btn_courses.setBounds(27, 10, 216, 72);
+		panel_button.add(btn_courses);
+		upper_panel.setLayout(null);
+		frame.getContentPane().setLayout(groupLayout);
+		
+		
+		
+		JLabel lblNewLabel = new JLabel("H@Ap");
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Californian FB", Font.BOLD, 38));
+		lblNewLabel.setBounds(23, 17, 150, 44);
+		upper_panel.add(lblNewLabel);
+		
+		JButton btn_aboutUS = new JButton("ABOUT US");
+		btn_aboutUS.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel_mainContent.removeAll();
+				panel_mainContent.add(panel_aboutus);
+				panel_mainContent.repaint();
+				panel_mainContent.revalidate();
+			}
+		});
+		btn_aboutUS.setBounds(27, 92, 216, 72);
+		panel_button.add(btn_aboutUS);
+		btn_aboutUS.setForeground(Color.WHITE);
+		btn_aboutUS.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		btn_aboutUS.setBackground(new Color(120, 196, 68));
+		
+		JButton btn_contactus = new JButton("CONTACT US");
+		btn_contactus.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel_mainContent.removeAll();
+				panel_mainContent.add(panel_contactus);
+				panel_mainContent.repaint();
+				panel_mainContent.revalidate();
+			}
+		});
+		btn_contactus.setForeground(Color.WHITE);
+		btn_contactus.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		btn_contactus.setBackground(new Color(120, 196, 68));
+		btn_contactus.setBounds(27, 174, 216, 72);
+		panel_button.add(btn_contactus);
+		
+		JButton btn_alumni = new JButton("ALUMNI");
+		btn_alumni.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel_mainContent.removeAll();
+				panel_mainContent.add(panel_alumni);
+				panel_mainContent.repaint();
+				panel_mainContent.revalidate();
+				
+			}
+		});
+		btn_alumni.setForeground(Color.WHITE);
+		btn_alumni.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		btn_alumni.setBackground(new Color(120, 196, 68));
+		btn_alumni.setBounds(27, 256, 216, 72);
+		panel_button.add(btn_alumni);
+		
+		JButton btn_scholar = new JButton("SCHOLAR");
+		btn_scholar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel_mainContent.removeAll();
+				panel_mainContent.add(panel_scholar);
+				panel_mainContent.repaint();
+				panel_mainContent.revalidate();
+				
+			}
+		});
+		btn_scholar.setForeground(Color.WHITE);
+		btn_scholar.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		btn_scholar.setBackground(new Color(120, 196, 68));
+		btn_scholar.setBounds(27, 338, 216, 72);
+		panel_button.add(btn_scholar);
+		
+		JButton btnNewButton = new JButton("Login");
+		btnNewButton.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnNewButton.setBounds(681, 27, 99, 29);
+		upper_panel.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Register");
+		btnNewButton_1.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_1.setBounds(532, 27, 120, 29);
+		upper_panel.add(btnNewButton_1);
+		
+	}
+}

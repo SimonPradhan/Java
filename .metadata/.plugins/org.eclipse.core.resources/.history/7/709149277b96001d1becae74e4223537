@@ -1,0 +1,17 @@
+package banking;
+
+import javax.swing.JPanel;
+
+public class Withdraw extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	JPanel withdraw;
+	public Withdraw() {
+		setLayout(null);
+		withdraw = new JPanel();
+		
+	}
+
+}

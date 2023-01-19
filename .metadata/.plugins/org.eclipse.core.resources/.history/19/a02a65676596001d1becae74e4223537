@@ -1,0 +1,506 @@
+package Week9asses;
+
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Hashtable;
+import java.util.Scanner;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+public class Banking {
+	private String name;
+    private float amount;
+    private int choice;
+    Scanner scanner = new Scanner(System.in);
+
+    private Hashtable<String, Float> accDetails = new Hashtable<String, Float>();
+
+
+    public String getName() {
+        return name;
+    }
+
+    public float getAmount() {
+        return amount;
+    }
+
+    public int getChoice() {
+        return choice;
+    }
+
+    private boolean checkAccount(String name) {
+        return accDetails.containsKey(name);
+    }
+
+    public String createAccount(String name, float amount) {
+        if (checkAccount(name)) {
+            
+            return "There is already an account under this name!";
+        }
+        accDetails.put(name, amount);
+        return "Account created successfully";
+    }
+
+    public String depositAmount(String name, float amount) {
+
+        if (!checkAccount(name)) {
+            
+            return "There is no user with this name!";
+        }
+
+        float currentAmount = accDetails.get(name);
+
+        if (amount < 0) {
+        
+            return "The amount cannot be in negative, please try again!";
+        }
+
+        accDetails.replace(name, currentAmount + amount);
+        return "Amount Deposited Successfully!";
+    }
+
+    public String withdrawAmount(String name, float amount) {
+
+        if (!checkAccount(name)) {
+            return "There is no user under this name!";
+        }
+
+        float prevBalance = accDetails.get(name);
+
+        if (amount < 0) {
+            return "The amount cannot be in negative, please try again!";
+        }
+
+        if (prevBalance < amount) {
+          
+            return "Exceeded current amount!";
+        }
+
+        accDetails.replace(name, prevBalance - amount);
+        return "Amount Withdrawn Successfully!";
+    }
+
+    public String checkBalance(String name) {
+
+        if (!checkAccount(name)) {
+            return "There is no account under this name!";
+        }
+
+        return accDetails.get(name).toString();
+    }
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Banking window = new Banking();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Banking() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 735, 593);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JPanel panel_welcome = new JPanel();
+		panel_welcome.setForeground(new Color(255, 255, 255));
+		panel_welcome.setBackground(new Color(0, 64, 128));
+		panel_welcome.setBounds(0, 0, 721, 65);
+		frame.getContentPane().add(panel_welcome);
+		panel_welcome.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("WELCOME TO NIBL Mobile Banking");
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Garamond", Font.PLAIN, 25));
+		lblNewLabel.setBounds(157, 10, 402, 45);
+		panel_welcome.add(lblNewLabel);
+		
+		JPanel panel_buttons = new JPanel();
+		panel_buttons.setBounds(10, 75, 701, 91);
+		frame.getContentPane().add(panel_buttons);
+		panel_buttons.setLayout(null);
+		
+		JPanel panel_main = new JPanel();
+		panel_main.setBounds(10, 176, 711, 370);
+		frame.getContentPane().add(panel_main);
+		panel_main.setLayout(new CardLayout(0, 0));
+		
+		JPanel panel_create = new JPanel();
+		panel_main.add(panel_create, "name_138368429516000");
+		panel_create.setLayout(new CardLayout(0, 0));
+		
+
+		JPanel panel_deposit = new JPanel();
+		panel_main.add(panel_deposit, "name_138377370673000");
+		panel_deposit.setLayout(new CardLayout(0, 0));
+		
+		JPanel panel_withdraw = new JPanel();
+		panel_main.add(panel_withdraw, "name_138412550848100");
+		panel_withdraw.setLayout(new CardLayout(0, 0));
+		
+		JButton btn_create = new JButton("Create Account");
+		btn_create.setForeground(new Color(213, 0, 106));
+		btn_create.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		btn_create.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel_main.removeAll();
+				panel_main.add(panel_create);
+				panel_main.repaint();
+				panel_main.revalidate();
+			}
+		});
+		btn_create.setBackground(new Color(255, 255, 255));
+		btn_create.setBounds(20, 22, 130, 48);
+		panel_buttons.add(btn_create);
+		
+		JButton btnDeposit = new JButton("Deposit");
+		btnDeposit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel_main.removeAll();
+				panel_main.add(panel_deposit);
+				panel_main.repaint();
+				panel_main.revalidate();
+			}
+		});
+		btnDeposit.setForeground(new Color(213, 0, 106));
+		btnDeposit.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		btnDeposit.setBackground(Color.WHITE);
+		btnDeposit.setBounds(190, 22, 130, 48);
+		panel_buttons.add(btnDeposit);
+		
+		JButton btnWithdraw = new JButton("Withdraw");
+		btnWithdraw.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel_main.removeAll();
+				panel_main.add(panel_withdraw);
+				panel_main.repaint();
+				panel_main.revalidate();
+			}
+		
+		});
+		
+		JPanel panel_checkBalance = new JPanel();
+		panel_main.add(panel_checkBalance, "name_138425913980200");
+		panel_checkBalance.setLayout(new CardLayout(0, 0));
+		
+		
+		btnWithdraw.setForeground(new Color(213, 0, 106));
+		btnWithdraw.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		btnWithdraw.setBackground(Color.WHITE);
+		btnWithdraw.setBounds(363, 22, 130, 48);
+		panel_buttons.add(btnWithdraw);
+		
+		JButton btnCheckBalance = new JButton("Check Balance");
+		btnCheckBalance.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel_main.removeAll();
+				panel_main.add(panel_checkBalance);
+				panel_main.repaint();
+				panel_main.revalidate();
+			}
+		});
+		btnCheckBalance.setForeground(new Color(213, 0, 106));
+		btnCheckBalance.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		btnCheckBalance.setBackground(Color.WHITE);
+		btnCheckBalance.setBounds(532, 22, 130, 48);
+		panel_buttons.add(btnCheckBalance);
+		
+		
+		
+	
+		
+		JPanel panel_insidecreate = new JPanel();
+		panel_insidecreate.setBackground(Color.WHITE);
+		panel_create.add(panel_insidecreate, "name_139014977005900");
+		panel_insidecreate.setLayout(null);
+		
+		JLabel lblNewLabel_1_2 = new JLabel("Creating Your Account...");
+		lblNewLabel_1_2.setForeground(Color.BLACK);
+		lblNewLabel_1_2.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblNewLabel_1_2.setBackground(new Color(0, 64, 128));
+		lblNewLabel_1_2.setBounds(10, 10, 285, 38);
+		panel_insidecreate.add(lblNewLabel_1_2);
+		
+		JLabel Lbl_firstName = new JLabel("FIRST NAME :");
+		Lbl_firstName.setForeground(new Color(0, 0, 0));
+		Lbl_firstName.setBackground(new Color(0, 64, 128));
+		Lbl_firstName.setFont(new Font("Times New Roman", Font.PLAIN, 23));
+		Lbl_firstName.setBounds(10, 68, 165, 38);
+		panel_insidecreate.add(Lbl_firstName);
+		
+		textField_fn = new JTextField();
+		textField_fn.setBounds(170, 68, 248, 36);
+		panel_insidecreate.add(textField_fn);
+		textField_fn.setColumns(10);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("LAST NAME :");
+		lblNewLabel_1_1.setForeground(Color.BLACK);
+		lblNewLabel_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 23));
+		lblNewLabel_1_1.setBackground(new Color(0, 64, 128));
+		lblNewLabel_1_1.setBounds(10, 143, 165, 38);
+		panel_insidecreate.add(lblNewLabel_1_1);
+		
+		textField_ln = new JTextField();
+		textField_ln.setColumns(10);
+		textField_ln.setBounds(170, 145, 248, 36);
+		panel_insidecreate.add(textField_ln);
+		
+		JLabel lblNewLabel_1_1_1 = new JLabel("AMOUNT:");
+		lblNewLabel_1_1_1.setForeground(Color.BLACK);
+		lblNewLabel_1_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 23));
+		lblNewLabel_1_1_1.setBackground(new Color(0, 64, 128));
+		lblNewLabel_1_1_1.setBounds(10, 214, 165, 38);
+		panel_insidecreate.add(lblNewLabel_1_1_1);
+		
+		textField_am = new JTextField();
+		textField_am.setColumns(10);
+		textField_am.setBounds(170, 216, 248, 36);
+		panel_insidecreate.add(textField_am);
+		
+		
+		JButton btnNewButton = new JButton("SUBMIT");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (textField_fn.getText().equals("")  || textField_ln.getText().equals("") || textField_am.getText().equals(" ") ) {
+					JOptionPane.showMessageDialog(null, "Please fill the boxes");
+				}else {
+					
+					JOptionPane.showMessageDialog(null, createAccount(textField_fn.getText()+textField_ln.getText(),Float.parseFloat(textField_am.getText())));
+				}
+			}
+		});
+		btnNewButton.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		btnNewButton.setBounds(282, 309, 136, 38);
+		panel_insidecreate.add(btnNewButton);
+		
+		
+		
+		JPanel panel_insidedeposit = new JPanel();
+		panel_deposit.add(panel_insidedeposit, "name_141014259121800");
+		panel_insidedeposit.setLayout(null);
+		
+		JLabel Lbl_firstName_1 = new JLabel("FIRST NAME :");
+		Lbl_firstName_1.setForeground(Color.BLACK);
+		Lbl_firstName_1.setFont(new Font("Times New Roman", Font.PLAIN, 23));
+		Lbl_firstName_1.setBackground(new Color(0, 64, 128));
+		Lbl_firstName_1.setBounds(61, 79, 165, 38);
+		panel_insidedeposit.add(Lbl_firstName_1);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(16, 127, 248, 36);
+		panel_insidedeposit.add(textField_3);
+		
+		JLabel lblNewLabel_1_1_2 = new JLabel("LAST NAME :");
+		lblNewLabel_1_1_2.setForeground(Color.BLACK);
+		lblNewLabel_1_1_2.setFont(new Font("Times New Roman", Font.PLAIN, 23));
+		lblNewLabel_1_1_2.setBackground(new Color(0, 64, 128));
+		lblNewLabel_1_1_2.setBounds(436, 79, 165, 38);
+		panel_insidedeposit.add(lblNewLabel_1_1_2);
+		
+		textField_4 = new JTextField();
+		textField_4.setColumns(10);
+		textField_4.setBounds(394, 127, 248, 36);
+		panel_insidedeposit.add(textField_4);
+		
+		JLabel lblNewLabel_1_1_1_1 = new JLabel("Amount to be deposited:");
+		lblNewLabel_1_1_1_1.setForeground(Color.BLACK);
+		lblNewLabel_1_1_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 23));
+		lblNewLabel_1_1_1_1.setBackground(new Color(0, 64, 128));
+		lblNewLabel_1_1_1_1.setBounds(243, 173, 248, 38);
+		panel_insidedeposit.add(lblNewLabel_1_1_1_1);
+		
+		textField_5 = new JTextField();
+		textField_5.setColumns(10);
+		textField_5.setBounds(228, 221, 260, 36);
+		panel_insidedeposit.add(textField_5);
+		
+		JButton btnNewButton_1 = new JButton("SUBMIT");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (textField_3.getText().equals("")  || textField_4.getText().equals("") || textField_5.getText().equals(" ") ) {
+					JOptionPane.showMessageDialog(null, "Please fill the boxes");
+				}else {
+					JOptionPane.showMessageDialog(null, depositAmount(textField_3.getText()+textField_4.getText(), Float.parseFloat(textField_5.getText())));
+				}
+			}
+		});
+		btnNewButton_1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		btnNewButton_1.setBounds(274, 307, 136, 38);
+		panel_insidedeposit.add(btnNewButton_1);
+		
+		JLabel lblNewLabel_1_2_1 = new JLabel("How much do you want to deposit?");
+		lblNewLabel_1_2_1.setForeground(Color.BLACK);
+		lblNewLabel_1_2_1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblNewLabel_1_2_1.setBackground(new Color(0, 64, 128));
+		lblNewLabel_1_2_1.setBounds(206, 10, 288, 38);
+		panel_insidedeposit.add(lblNewLabel_1_2_1);
+		
+		
+		
+		JPanel panel_insidewithdraw = new JPanel();
+		panel_withdraw.add(panel_insidewithdraw, "name_141868549682600");
+		panel_insidewithdraw.setLayout(null);
+		
+		JLabel lblNewLabel_1_2_1_1 = new JLabel("How much do you want to withdraw?");
+		lblNewLabel_1_2_1_1.setBounds(187, 28, 331, 24);
+		lblNewLabel_1_2_1_1.setForeground(Color.BLACK);
+		lblNewLabel_1_2_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblNewLabel_1_2_1_1.setBackground(new Color(0, 64, 128));
+		panel_insidewithdraw.add(lblNewLabel_1_2_1_1);
+		
+		JLabel Lbl_firstName_1_1 = new JLabel("FIRST NAME :");
+		Lbl_firstName_1_1.setBounds(68, 88, 149, 27);
+		Lbl_firstName_1_1.setForeground(Color.BLACK);
+		Lbl_firstName_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 23));
+		Lbl_firstName_1_1.setBackground(new Color(0, 64, 128));
+		panel_insidewithdraw.add(Lbl_firstName_1_1);
+		
+		textField_6 = new JTextField();
+		textField_6.setBounds(48, 125, 188, 27);
+		textField_6.setColumns(10);
+		panel_insidewithdraw.add(textField_6);
+		
+		JLabel lblNewLabel_1_1_2_1 = new JLabel("LAST NAME :");
+		lblNewLabel_1_1_2_1.setBounds(435, 88, 142, 27);
+		lblNewLabel_1_1_2_1.setForeground(Color.BLACK);
+		lblNewLabel_1_1_2_1.setFont(new Font("Times New Roman", Font.PLAIN, 23));
+		lblNewLabel_1_1_2_1.setBackground(new Color(0, 64, 128));
+		panel_insidewithdraw.add(lblNewLabel_1_1_2_1);
+		
+		textField_7 = new JTextField();
+		textField_7.setBounds(390, 127, 224, 24);
+		textField_7.setColumns(10);
+		panel_insidewithdraw.add(textField_7);
+		
+		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("Amount to be withdrawn:\r\n");
+		lblNewLabel_1_1_1_1_1.setBounds(222, 186, 260, 27);
+		lblNewLabel_1_1_1_1_1.setForeground(Color.BLACK);
+		lblNewLabel_1_1_1_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 23));
+		lblNewLabel_1_1_1_1_1.setBackground(new Color(0, 64, 128));
+		panel_insidewithdraw.add(lblNewLabel_1_1_1_1_1);
+		
+		textField_8 = new JTextField();
+		textField_8.setBounds(194, 223, 288, 39);
+		textField_8.setColumns(10);
+		panel_insidewithdraw.add(textField_8);
+		
+		JButton btnNewButton_1_1 = new JButton("SUBMIT");
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (textField_6.getText().equals("")  || textField_7.getText().equals("") || textField_8.getText().equals(" ") ) {
+					JOptionPane.showMessageDialog(null, "Please fill the boxes");
+				}else {
+					JOptionPane.showMessageDialog(null, withdrawAmount(textField_6.getText()+textField_7.getText(), Float.parseFloat(textField_8.getText())));
+				}
+			}
+		});
+		btnNewButton_1_1.setBounds(275, 302, 127, 39);
+		btnNewButton_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		panel_insidewithdraw.add(btnNewButton_1_1);
+		
+		
+		
+		JPanel panel_insidecheck = new JPanel();
+		panel_checkBalance.add(panel_insidecheck, "name_142354287795600");
+		panel_insidecheck.setLayout(null);
+		
+		JLabel lblNewLabel_1_2_1_1_1 = new JLabel("Your total balance will be shown below:");
+		lblNewLabel_1_2_1_1_1.setForeground(Color.BLACK);
+		lblNewLabel_1_2_1_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblNewLabel_1_2_1_1_1.setBackground(new Color(0, 64, 128));
+		lblNewLabel_1_2_1_1_1.setBounds(178, 26, 331, 24);
+		panel_insidecheck.add(lblNewLabel_1_2_1_1_1);
+		
+		JLabel Lbl_firstName_1_1_1 = new JLabel("FIRST NAME :");
+		Lbl_firstName_1_1_1.setForeground(Color.BLACK);
+		Lbl_firstName_1_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 23));
+		Lbl_firstName_1_1_1.setBackground(new Color(0, 64, 128));
+		Lbl_firstName_1_1_1.setBounds(59, 86, 149, 27);
+		panel_insidecheck.add(Lbl_firstName_1_1_1);
+		
+		textField_9 = new JTextField();
+		textField_9.setColumns(10);
+		textField_9.setBounds(39, 123, 188, 27);
+		panel_insidecheck.add(textField_9);
+		
+		JLabel lblNewLabel_1_1_2_1_1 = new JLabel("LAST NAME :");
+		lblNewLabel_1_1_2_1_1.setForeground(Color.BLACK);
+		lblNewLabel_1_1_2_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 23));
+		lblNewLabel_1_1_2_1_1.setBackground(new Color(0, 64, 128));
+		lblNewLabel_1_1_2_1_1.setBounds(426, 86, 142, 27);
+		panel_insidecheck.add(lblNewLabel_1_1_2_1_1);
+		
+		textField_10 = new JTextField();
+		textField_10.setColumns(10);
+		textField_10.setBounds(381, 125, 224, 24);
+		panel_insidecheck.add(textField_10);
+		
+		
+		
+		JLabel lblNewLabel_1_1_1_1_1_1 = new JLabel("Your total balance is:");
+		lblNewLabel_1_1_1_1_1_1.setForeground(Color.BLACK);
+		lblNewLabel_1_1_1_1_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 23));
+		lblNewLabel_1_1_1_1_1_1.setBackground(new Color(0, 64, 128));
+		lblNewLabel_1_1_1_1_1_1.setBounds(218, 188, 200, 27);
+		panel_insidecheck.add(lblNewLabel_1_1_1_1_1_1);
+		
+		
+		JLabel lblNewLabel_1_1_1_1_1_1_1 = new JLabel("");
+		lblNewLabel_1_1_1_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_1_1_1_1_1_1.setForeground(Color.BLACK);
+		lblNewLabel_1_1_1_1_1_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 23));
+		lblNewLabel_1_1_1_1_1_1_1.setBackground(new Color(0, 64, 128));
+		lblNewLabel_1_1_1_1_1_1_1.setBounds(192, 236, 260, 27);
+		panel_insidecheck.add(lblNewLabel_1_1_1_1_1_1_1);
+		
+		JButton btnNewButton_1_1_1 = new JButton("OK");
+		btnNewButton_1_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (textField_9.getText().equals("")  || textField_10.getText().equals("")  ) {
+					JOptionPane.showMessageDialog(null, "Please fill the boxes");
+				}else {
+					lblNewLabel_1_1_1_1_1_1_1.setText(checkBalance(textField_9.getText()+textField_10.getText()));
+				
+				}
+			}
+		});
+		btnNewButton_1_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		btnNewButton_1_1_1.setBounds(266, 300, 105, 33);
+		panel_insidecheck.add(btnNewButton_1_1_1);
+
+	}
+	}
+
+}

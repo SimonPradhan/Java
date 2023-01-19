@@ -1,0 +1,42 @@
+package tutorial;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class About_us extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6114700314021429299L;
+	private JFrame frame;
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					About_us window = new About_us();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	/**
+	 * Create the panel.
+	 */
+	public About_us() {
+		initialize();
+	}
+	
+	private void initialize() {
+			frame = new JFrame();
+			frame.setBounds(100, 100, 450, 300);
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frame.getContentPane().setLayout(null);
+			frame.setVisible(true);
+	}
+
+}

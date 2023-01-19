@@ -1,0 +1,14 @@
+package Banking;
+
+import javax.swing.JPanel;
+
+public class CreateAccount extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public CreateAccount() {
+
+	}
+
+}

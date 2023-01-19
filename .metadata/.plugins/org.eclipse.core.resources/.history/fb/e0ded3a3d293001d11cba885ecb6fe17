@@ -1,0 +1,24 @@
+package tutorial;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class About_us extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public About_us() {
+		initialize();
+	}
+	
+	void initialize() {
+		private void initialize() {
+			frame = new JFrame();
+			frame.setBounds(100, 100, 450, 300);
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frame.getContentPane().setLayout(null);
+			frame.setVisible(true);
+	}
+
+}

@@ -1,0 +1,14 @@
+package tutorial;
+
+import javax.swing.JPanel;
+
+public class About_us extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public About_us() {
+
+	}
+
+}
